@@ -160,6 +160,7 @@ elif upload_protocol.startswith("blackmagic"):
             "-nx",
             "--batch",
             "-ex", "target extended-remote $UPLOAD_PORT",
+            "-ex", "monitor connect_rst enable",
             "-ex", "monitor %s_scan" %
             ("jtag" if upload_protocol == "blackmagic-jtag" else "swdp"),
             "-ex", "attach 1",
